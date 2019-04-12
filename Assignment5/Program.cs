@@ -10,20 +10,26 @@ namespace Assignment5
     {
         static void Main(string[] args)
         {
-            Program mango= new Program();
+            Program a = new Program();
             Console.WriteLine("the longest word is : ");
-            Console.WriteLine(mango.MyFunctionA("Ada Lovelace wrote the first algorithm designed for processing by an Analytical Engine."));
+            Console.WriteLine(a.MyFunctionA("Ada Lovelace wrote the first algorithm designed for processing by an Analytical Engine."));
         }
 
-        public int  MyFunctionA (string input)
+        //private bool MyFunctionA(string v)
+        //{
+        // throw new NotImplementedException();
+        //}
+        //manvir
+        public String MyFunctionA(string input)
         {
-            //Write a C# program to find the longes word in a string.
+            //Write a C# program to find the longest word in a string.
             string[] words = input.Split(' ');
-            int wordArrayLength = words.Length;
-
-            foreach (var word in words)
+            int wordarrayLength = words.Length;
+            String longestword = words[0];
+            int[] wordsLength = new int[words.Length];
+            for (int s = 0; s < words.Length; s++)
             {
-                //TODO
+                wordsLength[s] = words[s].Length;
             }
             // loop post condition: we now jave array wordsLength which contains the lengths of each word
 
@@ -33,10 +39,20 @@ namespace Assignment5
             for (int y = 0; y < words.Length - 1; y++)
             {
                 currentWord = words[y];
+
                 nextWord = words[y + 1];
+                if (words[y + 1].Equals(words[y]))
+                {
+                    longestword = words[y + 1];
+                }
+
                 // TODO :Use an IF Statementr to make sure thet variable longestWord is always set to the Longest Word in the input string
             }
+            return longestword;
 
         }
+
+
     }
 }
+
